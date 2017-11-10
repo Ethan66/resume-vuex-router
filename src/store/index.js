@@ -54,10 +54,10 @@ export default new Vuex.Store({
       state.resume.education.splice(index,1)
     },
     addProject(state,empty){
-      state.resume.education.push(empty)
+      state.resume.projects.push(empty)
     },
     removeProject(state,index){
-      state.resume.education.splice(index,1)
+      state.resume.projects.splice(index,1)
     },
     removeSkill(state,index){
       state.resume.skills.splice(index,1)
