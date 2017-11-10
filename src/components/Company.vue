@@ -1,5 +1,6 @@
 <template>
   <div class="item">
+    {{company}}
     <div class="content tip">
       <p class="top">
         <svg class="icon" aria-hidden="true">
@@ -17,13 +18,13 @@
       <div class="itemEditor">
         <el-form>
           <el-form-item v-bind:label="title.one">
-            <el-input  v-model='work[keys[0]]'></el-input>
+            <el-input  v-bind:value='work[keys[0]]' v-on:input="setCompany(keys[0],index)"></el-input>
           </el-form-item>
           <el-form-item v-bind:label="title.two">
-            <el-input  v-model='work[keys[1]]'></el-input>
+            <el-input  v-bind:value='work[keys[1]]' v-on:input="setCompany(keys[1],index)"></el-input>
           </el-form-item>
           <el-form-item v-bind:label="title.three">
-            <el-input  v-model='work[keys[2]]'></el-input>
+            <el-input  v-bind:value='work[keys[2]]' v-on:input="setCompany(keys[2],index)"></el-input>
           </el-form-item>
           <el-form-item v-bind:label="title.four">
             <el-date-picker
@@ -38,7 +39,7 @@
             <el-input
               type="textarea"
               :rows="3"
-              v-model="work[keys[4]]"
+              v-bind:value="work[keys[4]]"  v-on:input="setCompany(keys[4],index)"
             >
             </el-input>
           </el-form-item>
@@ -89,6 +90,15 @@
         let obj={}
         obj["company"]=index
         return this.$store.commit("removeItem",obj)
+      },
+      setCompany(key,index){
+        let obj={}
+        let obj1={}
+        let obj2={}
+        obj2[key]=event.target.value
+        obj1["company"]=obj2
+        obj[index]=obj1             //{1:{company:{name:value}}}
+        return this.$store.commit("editItem",obj)
       }
     }
   }

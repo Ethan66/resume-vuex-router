@@ -63,6 +63,16 @@ export default new Vuex.Store({
       for(let key in obj){
         state.resume.profile[key]=obj[key]
       }
-    }
+    },
+
+    editItem(state,obj){            //{1:{company:{name:value}}},key=1,key1=company,key2=name
+      for(let key in obj){   //key=1
+        for(let key1 in obj[key]){  //key=1,key1=company
+          for(let key2 in obj[key][key1]){    //key2=name
+            state.resume[key1][key][key2]=obj[key][key1][key2]
+          }
+        }
+      }
+    },
   }
 })
