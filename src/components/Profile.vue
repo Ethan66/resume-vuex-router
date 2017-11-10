@@ -13,28 +13,28 @@
       <el-form class="p_info">
         <div class="write">
           <el-form-item label="姓名">
-            <el-input placeholder="请输入姓名" v-model='profile.name'></el-input>
+            <el-input placeholder="请输入姓名" v-on:input="setProfile('name')"></el-input>
           </el-form-item>
           <el-form-item label="身高">
-            <el-input placeholder="请输入有效邮箱" v-model='profile.height'></el-input>
+            <el-input placeholder="请输入有效邮箱" v-on:input="setProfile('height')"></el-input>
           </el-form-item>
           <el-form-item label="学历">
-            <el-input placeholder="请输入手机号码" v-model='profile.education'></el-input>
+            <el-input placeholder="请输入手机号码" v-on:input="setProfile('education')"></el-input>
           </el-form-item>
           <el-form-item label="职位意向">
-            <el-input placeholder="请输入职位" v-model='profile.workDirection'></el-input>
+            <el-input placeholder="请输入职位" v-on:input="setProfile('workDirection')"></el-input>
           </el-form-item>
           <el-form-item label="邮箱">
-            <el-input placeholder="请输入有效邮箱" v-model='profile.email'></el-input>
+            <el-input placeholder="请输入有效邮箱" v-on:input="setProfile('email')"></el-input>
           </el-form-item>
           <el-form-item label="电话">
-            <el-input placeholder="请输入手机号码" v-model='profile.number'></el-input>
+            <el-input placeholder="请输入手机号码" v-on:input="setProfile('number')"></el-input>
           </el-form-item>
           <el-form-item label="年龄">
-            <el-input placeholder="请输入内容" v-model='profile.age'></el-input>
+            <el-input placeholder="请输入内容" v-on:input="setProfile('age')"></el-input>
           </el-form-item>
           <el-form-item label="社交网站">
-            <el-input placeholder="请输入网站名称" v-model='profile.website'></el-input>
+            <el-input placeholder="请输入网站名称" v-on:input="setProfile('website')"></el-input>
           </el-form-item>
         </div>
         <div class="portrait">
@@ -55,7 +55,7 @@
       <el-input
         type="textarea"
         :rows="1"
-        placeholder="请输入内容" v-model="profile.address"
+        placeholder="请输入内容" v-on:input="setProfile('address')"
       >
       </el-input>
     </div>
@@ -64,7 +64,7 @@
       <el-input
         type="textarea"
         :rows="3"
-        placeholder="请输入内容" v-model="profile.summary"
+        placeholder="请输入内容" v-on:input="setProfile('summary')"
       >
       </el-input>
     </div>
@@ -81,7 +81,10 @@
       profile:{
         get(){
           return this.$store.state.resume.profile
-        }
+        },
+        /*set(value){
+          return this.$store.commit('',value)
+        }*/
       }
     },
 
@@ -100,6 +103,11 @@
           this.$message.error('上传头像图片大小不能超过 2MB!');
         }
         return isJPG && isLt2M;
+      },
+      setProfile(key){
+        let obj={}
+        obj[key]=event.target.value
+        return this.$store.commit("editProfile",obj)
       }
     }
   }

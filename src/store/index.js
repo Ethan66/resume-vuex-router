@@ -71,6 +71,12 @@ export default new Vuex.Store({
     },
     getId(state,id){
       state.resume.id=id
+    },
+
+    editProfile(state,obj){
+      for(let key in obj){
+        state.resume.profile[key]=obj[key]
+      }
     }
   }
 })
