@@ -171,7 +171,7 @@
       },
       logout(){
         AV.User.logOut()
-        this.currentUser = null
+        this.currentUser = ''
         window.location.reload()
       }
     }
