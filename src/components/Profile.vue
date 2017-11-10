@@ -13,28 +13,28 @@
       <el-form class="p_info">
         <div class="write">
           <el-form-item label="姓名">
-            <el-input placeholder="请输入姓名" v-on:input="setProfile('name')"></el-input>
+            <el-input placeholder="请输入姓名" v-bind:value="profile.name" v-on:input="setProfile('name')"></el-input>
           </el-form-item>
           <el-form-item label="身高">
-            <el-input placeholder="请输入有效邮箱" v-on:input="setProfile('height')"></el-input>
+            <el-input placeholder="请输入身高" v-bind:value="profile.height" v-on:input="setProfile('height')"></el-input>
           </el-form-item>
           <el-form-item label="学历">
-            <el-input placeholder="请输入手机号码" v-on:input="setProfile('education')"></el-input>
+            <el-input placeholder="请输入手机号码" v-bind:value="profile.education" v-on:input="setProfile('education')"></el-input>
           </el-form-item>
           <el-form-item label="职位意向">
-            <el-input placeholder="请输入职位" v-on:input="setProfile('workDirection')"></el-input>
+            <el-input placeholder="请输入职位" v-bind:value="profile.workDirection" v-on:input="setProfile('workDirection')"></el-input>
           </el-form-item>
           <el-form-item label="邮箱">
-            <el-input placeholder="请输入有效邮箱" v-on:input="setProfile('email')"></el-input>
+            <el-input placeholder="请输入有效邮箱" v-bind:value="profile.email" v-on:input="setProfile('email')"></el-input>
           </el-form-item>
           <el-form-item label="电话">
-            <el-input placeholder="请输入手机号码" v-on:input="setProfile('number')"></el-input>
+            <el-input placeholder="请输入手机号码" v-bind:value="profile.number" v-on:input="setProfile('number')"></el-input>
           </el-form-item>
           <el-form-item label="年龄">
-            <el-input placeholder="请输入内容" v-on:input="setProfile('age')"></el-input>
+            <el-input placeholder="请输入内容" v-bind:value="profile.age" v-on:input="setProfile('age')"></el-input>
           </el-form-item>
           <el-form-item label="社交网站">
-            <el-input placeholder="请输入网站名称" v-on:input="setProfile('website')"></el-input>
+            <el-input placeholder="请输入网站名称" v-bind:value="profile.website" v-on:input="setProfile('website')"></el-input>
           </el-form-item>
         </div>
         <div class="portrait">
