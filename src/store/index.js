@@ -41,29 +41,15 @@ export default new Vuex.Store({
     preview(state,i){
       state.preview.show=i
     },
-    addCompany(state,empty){
-      state.resume.company.push(empty)
+    addItem(state,obj){
+      for(let key in obj){
+        state.resume[key].push(obj[key])
+      }
     },
-    removeCompany(state,index){
-      state.resume.company.splice(index,1)
-    },
-    addEducation(state,empty){
-      state.resume.education.push(empty)
-    },
-    removeEducation(state,index){
-      state.resume.education.splice(index,1)
-    },
-    addProject(state,empty){
-      state.resume.projects.push(empty)
-    },
-    removeProject(state,index){
-      state.resume.projects.splice(index,1)
-    },
-    removeSkill(state,index){
-      state.resume.skills.splice(index,1)
-    },
-    addSkill(state,key){
-      state.remuse.skills.push(key)
+    removeItem(state,obj){
+      for(let key in obj){
+        state.resume[key].splice(obj[key],1)
+      }
     },
 
     getData(state,content){

@@ -42,10 +42,14 @@
     },
     methods:{
       removeSkill(index){
-        return this.$store.commit("removeSkill",index)
+        let obj={}
+        obj["skills"]=index
+        return this.$store.commit("removeItem",obj)
       },
       addSkill(){
-        return this.$store.commit("addSkill",{name:'',scope:'',grade:''})
+        let obj={}
+        obj["skills"]={name:'',scope:'',grade:''}
+        return this.$store.commit('addItem', obj)
       }
     }
   }

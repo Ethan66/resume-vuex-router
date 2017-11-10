@@ -81,10 +81,14 @@
         this.keys.map(function(value,index){
           empty[value]=''
         })
-        return this.$store.commit('addProject', empty)
+        let obj={}
+        obj["projects"]=empty
+        return this.$store.commit('addItem', obj)
       },
       removeProject(index){
-        return this.$store.commit("removeProject",index)
+        let obj={}
+        obj["projects"]=index
+        return this.$store.commit("removeItem",obj)
       }
     }
   }
