@@ -1,6 +1,5 @@
 <template>
   <div class="item">
-    {{company}}
     <div class="content tip">
       <p class="top">
         <svg class="icon" aria-hidden="true">
@@ -18,13 +17,13 @@
       <div class="itemEditor">
         <el-form>
           <el-form-item v-bind:label="title.one">
-            <el-input  v-bind:value='work[keys[0]]' v-on:input="setCompany(keys[0],index)"></el-input>
+            <el-input  v-bind:value='work[keys[0]]' v-on:input="setItem(keys[0],index)"></el-input>
           </el-form-item>
           <el-form-item v-bind:label="title.two">
-            <el-input  v-bind:value='work[keys[1]]' v-on:input="setCompany(keys[1],index)"></el-input>
+            <el-input  v-bind:value='work[keys[1]]' v-on:input="setItem(keys[1],index)"></el-input>
           </el-form-item>
           <el-form-item v-bind:label="title.three">
-            <el-input  v-bind:value='work[keys[2]]' v-on:input="setCompany(keys[2],index)"></el-input>
+            <el-input  v-bind:value='work[keys[2]]' v-on:input="setItem(keys[2],index)"></el-input>
           </el-form-item>
           <el-form-item v-bind:label="title.four">
             <el-date-picker
@@ -39,7 +38,7 @@
             <el-input
               type="textarea"
               :rows="3"
-              v-bind:value="work[keys[4]]"  v-on:input="setCompany(keys[4],index)"
+              v-bind:value="work[keys[4]]"  v-on:input="setItem(keys[4],index)"
             >
             </el-input>
           </el-form-item>
@@ -91,7 +90,7 @@
         obj["company"]=index
         return this.$store.commit("removeItem",obj)
       },
-      setCompany(key,index){
+      setItem(key,index){
         let obj={}
         let obj1={}
         let obj2={}

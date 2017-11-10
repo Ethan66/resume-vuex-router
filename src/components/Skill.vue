@@ -16,10 +16,10 @@
       <div class="itemEditor">
         <el-form>
           <el-form-item label="技能名称">
-            <el-input v-model='skill.name'></el-input>
+            <el-input v-bind:value='skill.name' v-on:input="setItem('name',index)"></el-input>
           </el-form-item>
           <el-form-item label="擅长领域">
-            <el-input v-model='skill.scope'></el-input>
+            <el-input v-bind:value='skill.scope' v-on:input="setItem('scope',index)"></el-input>
           </el-form-item>
           <el-form-item label="自我评分">
             <el-rate v-model="skill.grade"></el-rate>
@@ -50,6 +50,15 @@
         let obj={}
         obj["skills"]={name:'',scope:'',grade:''}
         return this.$store.commit('addItem', obj)
+      },
+      setItem(key,index){
+        let obj={}
+        let obj1={}
+        let obj2={}
+        obj2[key]=event.target.value
+        obj1["skills"]=obj2
+        obj[index]=obj1             //{1:{company:{name:value}}}
+        return this.$store.commit("editItem",obj)
       }
     }
   }
