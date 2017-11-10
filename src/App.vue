@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <Nav1 class="nav1" v-show="preview.show" />
-    <Editor class="editor" v-show="preview.show"/>
-    <Preview v-show="!preview.show" />
+    <router-view name='nav'></router-view>
+    <router-view name="edit"></router-view>
+    <router-view name="preview"></router-view>
+    <!--<Nav1 class="nav1" v-show="preview.show" />
+    <Editor class="editor" v-show="preview.show"/>-->
+    <!--<Preview v-show="!preview.show" />-->
   </div>
 </template>
 
@@ -45,31 +48,7 @@ export default {
   },
   data(){
       return {
-         /* currentTab:{
-              tab:0
-          },
-        preview:{
-              show:true
-        },
-        icons:['user','gongwenbao','xueshimao','skill','xiangmu']
-        ,
-        resume:{
-          profile:{
-              name:'',height:'',education:'',workDirection:'',email:'',number:'',age:'',website:'',imageUrl:'',address:'',summary:''
-          },
-          company:[
-            {name:'',department:'',position:'',date:'',content:''}
-          ],
-          education:[
-            {name:'',degree:'',profession:'',date:'',award:''}
-          ],
-          skills:[
-            {name:'',scope:'',grade:''}
-          ],
-          projects:[
-            {website:'',module:'',position:'',date:'',summary:''}
-          ]
-        }*/
+
       }
   },
   methods:{
@@ -93,7 +72,7 @@ export default {
     setResume(content,id){
       this.$store.commit("getData",content)
       this.$store.commit("getId",id)
-    }
+    },
   }
 }
 </script>
@@ -115,8 +94,8 @@ export default {
   .nav1{
 
   }
-  .editor{
+  /*.editor{
     flex: 1; background: #f2f2f2; margin-left: 24em;
-  }
+  }*/
 
 </style>

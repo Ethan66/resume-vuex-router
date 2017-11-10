@@ -71,6 +71,7 @@
 <style lang="scss">
   $color:#409EFF;
   #editor{
+    flex: 1; background: #f2f2f2; margin-left: 24em;
     ol{
       padding: 50px;
     }
