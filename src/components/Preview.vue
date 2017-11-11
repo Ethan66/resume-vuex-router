@@ -111,9 +111,9 @@
     </div>
     <div class="btn">
       <el-button-group>
-        <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>
-        <el-button type="primary" v-on:click='show=true'><i class="el-icon-share"></i>退出预览</el-button>
-        <el-button type="primary">下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
+        <el-button type="primary" icon="el-icon-arrow-left" v-on:click='showPre'>上一页</el-button>
+        <el-button type="primary" v-on:click='showEditor'><i class="el-icon-share"></i>退出预览</el-button>
+        <el-button type="primary" v-on:click='showNext'>下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
       </el-button-group>
     </div>
   </div>
@@ -154,6 +154,15 @@
           var d=date1.getDate();
           return year+'/'+month+'/'+d
         }
+      },
+      showEditor(){
+        this.$router.go(-1)
+      },
+      showPre(){
+        this.$router.go(-1)
+      },
+      showNext(){
+        this.$router.go(1)
       }
     }
   }

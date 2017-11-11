@@ -23,9 +23,9 @@
     </ol>-->
     <div class="btn">
       <el-button-group>
-        <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>
-        <el-button type="primary" v-on:click='show=false'><i class="el-icon-share"></i>点击预览</el-button>
-        <el-button type="primary">下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
+        <el-button type="primary" icon="el-icon-arrow-left" v-on:click='showPre'>上一页</el-button>
+        <el-button type="primary" v-on:click='showPreview'><i class="el-icon-share"></i>点击预览</el-button>
+        <el-button type="primary" v-on:click='showNext'>下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
       </el-button-group>
     </div>
   </div>
@@ -60,6 +60,17 @@
         }
       }
     },
+    methods:{
+      showPreview(){
+        this.$router.push({path:'/preview'})
+      },
+    showPre(){
+      this.$router.go(-1)
+    },
+    showNext(){
+      this.$router.go(1)
+    }
+    }
     /*methods:{
         addCompany(){
             this.resume.company.push({name:'',department:'',position:'',date:'',content:''})
