@@ -1,12 +1,13 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
+import * as cookie from './cookie.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     count: 0,
     currentTab:{
-      tab:0
+      tab:cookie.get('currentTab') || 0
     },
     preview:{
       show:true
@@ -37,6 +38,7 @@ export default new Vuex.Store({
     },
     switchTab(state,i){
       state.currentTab.tab=i
+      cookie.save('currentTab',state.currentTab.tab)
     },
     preview(state,i){
       state.preview.show=i

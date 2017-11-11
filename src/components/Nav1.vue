@@ -3,7 +3,7 @@
     <h1>Resume</h1>
     <dl>
       <dt><span>Fill in your resume</span></dt>
-      <dd v-for="i in [0,1,2,3,4]" v-bind:class="{active:currentTab==i}" v-on:click="switchTab(i)">
+      <dd v-for="i in [0,1,2,3,4]" v-bind:class="{active:currentTab==i}" v-on:click="switchTab1(i)">
         <svg class="icon" aria-hidden="true">
           <use v-bind:xlink:href="'#icon-'+icons[i]"></use>
         </svg>
@@ -58,7 +58,7 @@
 
       },
     methods:{
-      switchTab(i){
+      switchTab1(i){
         this.currentTab=i
         this.$router.push({path:'/edit/'+this.tabName[i]})
       }
