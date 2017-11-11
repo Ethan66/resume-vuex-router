@@ -1,7 +1,10 @@
 <template>
   <div id="editor">
     <Topbar />
-    <ol>
+    <div class="editContent">
+      <router-view></router-view>
+    </div>
+    <!--<ol>
       <li v-show="currentTab==0">
         <Profile />
       </li>
@@ -17,7 +20,7 @@
       <li v-show="currentTab==4">
         <Projects />
       </li>
-    </ol>
+    </ol>-->
     <div class="btn">
       <el-button-group>
         <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>
@@ -73,6 +76,9 @@
   #editor{
     flex: 1; background: #f2f2f2; margin-left: 24em;
     ol{
+      padding: 50px;
+    }
+    .editContent{
       padding: 50px;
     }
     .btn{

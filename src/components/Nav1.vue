@@ -3,7 +3,7 @@
     <h1>Resume</h1>
     <dl>
       <dt><span>Fill in your resume</span></dt>
-      <dd v-for="i in [0,1,2,3,4]" v-bind:class="{active:currentTab==i}" v-on:click="currentTab=i">
+      <dd v-for="i in [0,1,2,3,4]" v-bind:class="{active:currentTab==i}" v-on:click="switchTab(i)">
         <svg class="icon" aria-hidden="true">
           <use v-bind:xlink:href="'#icon-'+icons[i]"></use>
         </svg>
@@ -54,8 +54,15 @@
           get(){
             return this.$store.state.icons
           }
-        }
+        },
+
+      },
+    methods:{
+      switchTab(i){
+        this.currentTab=i
+        this.$router.push({path:'/edit/'+this.tabName[i]})
       }
+    }
   }
 </script>
 
